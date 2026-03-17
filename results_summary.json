@@ -1,0 +1,207 @@
+{
+    "amazon": [
+        {
+            "platform": "amazon",
+            "title": "N/A",
+            "price": "898",
+            "currency": "INR",
+            "availability": "In Stock",
+            "product_url": "N/A",
+            "seller_rating": "N/A",
+            "shipping_info": "0.00"
+        },
+        {
+            "platform": "amazon",
+            "title": "N/A",
+            "price": "999",
+            "currency": "INR",
+            "availability": "In Stock",
+            "product_url": "N/A",
+            "seller_rating": "N/A",
+            "shipping_info": "0.00"
+        },
+        {
+            "platform": "amazon",
+            "title": "N/A",
+            "price": "999",
+            "currency": "INR",
+            "availability": "In Stock",
+            "product_url": "N/A",
+            "seller_rating": "N/A",
+            "shipping_info": "0.00"
+        },
+        {
+            "platform": "amazon",
+            "title": "N/A",
+            "price": "399",
+            "currency": "INR",
+            "availability": "In Stock",
+            "product_url": "N/A",
+            "seller_rating": "N/A",
+            "shipping_info": "0.00"
+        },
+        {
+            "platform": "amazon",
+            "title": "N/A",
+            "price": "290",
+            "currency": "INR",
+            "availability": "In Stock",
+            "product_url": "N/A",
+            "seller_rating": "N/A",
+            "shipping_info": "0.00"
+        },
+        {
+            "platform": "amazon",
+            "title": "N/A",
+            "price": "499",
+            "currency": "INR",
+            "availability": "In Stock",
+            "product_url": "N/A",
+            "seller_rating": "N/A",
+            "shipping_info": "0.00"
+        },
+        {
+            "platform": "amazon",
+            "title": "N/A",
+            "price": "280",
+            "currency": "INR",
+            "availability": "In Stock",
+            "product_url": "N/A",
+            "seller_rating": "N/A",
+            "shipping_info": "0.00"
+        },
+        {
+            "platform": "amazon",
+            "title": "N/A",
+            "price": "1294",
+            "currency": "INR",
+            "availability": "In Stock",
+            "product_url": "N/A",
+            "seller_rating": "N/A",
+            "shipping_info": "0.00"
+        },
+        {
+            "platform": "amazon",
+            "title": "N/A",
+            "price": "280",
+            "currency": "INR",
+            "availability": "In Stock",
+            "product_url": "N/A",
+            "seller_rating": "N/A",
+            "shipping_info": "0.00"
+        },
+        {
+            "platform": "amazon",
+            "title": "N/A",
+            "price": "499",
+            "currency": "INR",
+            "availability": "In Stock",
+            "product_url": "N/A",
+            "seller_rating": "N/A",
+            "shipping_info": "0.00"
+        }
+    ],
+    "ebay": [
+        {
+            "platform": "ebay",
+            "title": "MEN'S GOLD TONE STAINLESS STEEL DIGITAL WATCH A168WG CASIO-New US",
+            "price": "24.69",
+            "currency": "USD",
+            "availability": "In Stock",
+            "product_url": "https://www.ebay.com/itm/376979688875?_skw=digital+watch&hash=item57c5bd8dab:g:-1YAAeSwyRppmQpd",
+            "seller_rating": "N/A",
+            "shipping_info": "Check Website"
+        },
+        {
+            "platform": "ebay",
+            "title": "Luxury Mens Watch Quartz Diver Sport Digital Analog 5ATM Waterproof Wristwatch",
+            "price": "24.93",
+            "currency": "USD",
+            "availability": "In Stock",
+            "product_url": "https://www.ebay.com/itm/306673706551?_skw=digital+watch&hash=item47672d6637:g:JbkAAOSwGSRmxaAx&amdata=enc%3AAQALAAAA8ACCtXRWQnOEpyOqnQQ8KGYaKeLmCia7xrkbJMOhj2Im708uMIhSTFdHNoNx6clLCBYig%2Fa3vLN2nf8rT03rzrUMgaujV3lqsIHOvNb3tRsGG3C4w1psznoVNsBFmB95K4VEnMYksgyAMkANpfyz6YXogTSkXfsd%2Fb3B7uY8CxGCmHhArSL15blfBzJyazeKOKImb7BYijrlpsVM6kFYcNVMxgzeoKdLPIrmj4Xk%2Bo4iwntbx9jfaR8YU7Gdfy3D7kjpe%2BcEbmUjykChuk9NRO80R6eOfiYWWlrk8r0J9eQnkuFqhYYH65RQ%2FVoEuNndLA%3D%3D",
+            "seller_rating": "N/A",
+            "shipping_info": "Check Website"
+        },
+        {
+            "platform": "ebay",
+            "title": "Stainless Steel Alloy  Men's Calculator Watches Multifuncional",
+            "price": "28.90",
+            "currency": "USD",
+            "availability": "In Stock",
+            "product_url": "https://www.ebay.com/itm/136758859136?_skw=digital+watch&hash=item1fd7769580:g:obkAAeSw6NdpHGVv&amdata=enc%3AAQALAAAA8ACCtXRWQnOEpyOqnQQ8KGZaPDjvKG1yjkWo7dUO%2FCRUDJb1Dy7%2F8I%2FE9HEJnV6dVT%2Bap3hPF151yYI5i5HK5%2BqFCOOFmHe9NoFX%2F95R3%2FSoH%2BAp4ssQNAhBH2gWALDcq38%2FPM8bk4GKn%2BJRwTdM7tv%2FKAneEfVX7AA46a701qtYupmNGzYK%2F9zcw84RQGYw%2B3wYMHz5o3u9tcU0cKYonst0d%2BDSNiVVdR7rkjSOIWZKjiH0canuutTimQXM63mdSGxzappxiWuhtAFwAzHywn5odh0iqAfvSp3lTDvUHv7ZGIsdvlTdRnkpWn6Vne9E9Q%3D%3D",
+            "seller_rating": "N/A",
+            "shipping_info": "Check Website"
+        },
+        {
+            "platform": "ebay",
+            "title": "Men's Watch Big Dial Quartz Digital Analog Luminous Waterproof Sports Wristwatch",
+            "price": "22.94",
+            "currency": "USD",
+            "availability": "In Stock",
+            "product_url": "https://www.ebay.com/itm/127101504360?_skw=digital+watch&hash=item1d97d70b68:g:cUIAAOSwtbVoHawx&amdata=enc%3AAQALAAAA8ACCtXRWQnOEpyOqnQQ8KGZ%2FMj3qyQqYSsAojgwXpZdKoY7RP73WtNsNe2MsYYkmT3xYlu0ppvwMaIwFxHJsP0aSHTvx65o4Xtr924krFtKOr9t0fmXtm3%2BZ4iYyOkoWWA0N0sMyHaKZjSTEYPsbs3x%2BYAPELqxmoiUx%2BdaiL1%2FQHQJlIojms0KNwJA%2BpD0KVm7OrV6vQWohnL6e3QJO8OeZxMp%2BoNHDxQ4OfxKYeLps0vcXFDtziZ5nCxBB6BYu04snUiYjLSIzeO%2BZ318fkO448zsc72pDCKHMFPTMO0--k8NPmpcQR1pvGrTIfY%2BWDA%3D%3D",
+            "seller_rating": "N/A",
+            "shipping_info": "Check Website"
+        },
+        {
+            "platform": "ebay",
+            "title": "F 91W Classic Digital Resin Strap Watch Stopwatch Chronograph Sport Unisex Men",
+            "price": "5.30",
+            "currency": "USD",
+            "availability": "In Stock",
+            "product_url": "https://www.ebay.com/itm/389658855223?_skw=digital+watch&hash=item5ab97a4737:g:FksAAeSw6~hpmWJH",
+            "seller_rating": "N/A",
+            "shipping_info": "Check Website"
+        },
+        {
+            "platform": "ebay",
+            "title": "Waterproof Digital Sports Watch Military Tactical LED Backlight Wristwatch Men",
+            "price": "9.89",
+            "currency": "USD",
+            "availability": "In Stock",
+            "product_url": "https://www.ebay.com/itm/204078340842?_skw=digital+watch&hash=item2f84045aea:g:vLcAAOSwKRZk-6nV",
+            "seller_rating": "N/A",
+            "shipping_info": "Check Website"
+        },
+        {
+            "platform": "ebay",
+            "title": "F 91W Classic Digital Resin Strap Watch Stopwatch Chronograph Sport Unisex Men",
+            "price": "4.99",
+            "currency": "USD",
+            "availability": "In Stock",
+            "product_url": "https://www.ebay.com/itm/236637209085?_skw=digital+watch&hash=item3718ad41fd:g:s0gAAeSwx4BpkaQA",
+            "seller_rating": "N/A",
+            "shipping_info": "Check Website"
+        },
+        {
+            "platform": "ebay",
+            "title": "Waterproof Men's Military Tactical LED Digital Sports Watch Backlight Wristwatch",
+            "price": "14.99",
+            "currency": "USD",
+            "availability": "In Stock",
+            "product_url": "https://www.ebay.com/itm/404406664209?_skw=digital+watch&hash=item5e2883fc11:g:PUsAAOSwc6ZkwzIv",
+            "seller_rating": "N/A",
+            "shipping_info": "Check Website"
+        },
+        {
+            "platform": "ebay",
+            "title": "CASIO MTP\u2011B195 Series MTP-B195D-3A Green Dial Analog 38\u202fmm Men\u2019s Watch",
+            "price": "94.00",
+            "currency": "USD",
+            "availability": "In Stock",
+            "product_url": "https://www.ebay.com/itm/306670618529?_skw=digital+watch&hash=item4766fe47a1:g:IJ0AAeSw1pFpSQsS&amdata=enc%3AAQALAAAA8ACCtXRWQnOEpyOqnQQ8KGYrbZ5y4xhPDWm7oTtR6S6%2BY3SbsK2YwCiYKbYb%2F52pBE1N15AX97MGutM1iXVpxceZMS1H8baIM7hs%2B%2B5xEhj3vgJI12f3Jd0YAkbp%2FORzMpOczJQtxoelKU7ADWQV8%2Fdf2jx86XdHRp2GBT5tA1kZaZtsopbpuPE0x6b%2BW0uI0cck1JKigRxOjcTxBdEmzqMf%2BJ56P4Iajytm3OkSg3gi8%2FsosXqRWdg1uI9kCJOixbwKlTHLAVbQKzZnoszkDngCdf%2FSkawDfr28jeiMbehfmtPKytAbENo1v%2FroiewnLQ%3D%3D",
+            "seller_rating": "N/A",
+            "shipping_info": "Check Website"
+        },
+        {
+            "platform": "ebay",
+            "title": "Waterproof Digital Sports Watch Military Tactical LED Backlight Men's Wristwatch",
+            "price": "25.19",
+            "currency": "USD",
+            "availability": "In Stock",
+            "product_url": "https://www.ebay.com/itm/127013445442?_skw=digital+watch&hash=item1d92975f42:g:E2UAAOSw4AFn4oU4&amdata=enc%3AAQALAAAA8ACCtXRWQnOEpyOqnQQ8KGYHC34wDjW7N0yx827rQabS8cXxFf3i5GJh5adHDAKykFMP2RKaWTzY1%2FkYKIdDuUVa9ibPji2AiAylzJSbQtNAEly1Cw9tOywmGOqKT2P%2BSJ5mJCfeg04ZNVasCSIp8nnYqyWYQlRhVEEWZqGQE7gt4TZRxUxCvhPPRKLY7J3XCucs%2Fh%2BSPN6sk5MCN%2FKqKbLS1kUUVQzq3YBwDQo2FMspWkO9rfFSuIRV5WATFHvxuhtCeQlLkNgiHA3HOjQnaEwD2DTBDpY%2F3L1sTzvWWDrvjGpPTkTqc3m6Yj3yS2RXyA%3D%3D",
+            "seller_rating": "N/A",
+            "shipping_info": "Check Website"
+        }
+    ],
+    "walmart": []
+}
