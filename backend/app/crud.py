@@ -1,5 +1,7 @@
-from typing import List, Dict, Any, Optional
-from database import get_connection
+try:
+    from backend.database import get_connection
+except ImportError:
+    from database import get_connection
 import logging
 
 # Setup logging

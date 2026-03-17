@@ -10,6 +10,11 @@ Enhanced API with Performance Optimizations:
 from fastapi import FastAPI, File, UploadFile, HTTPException, Query
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.middleware.gzip import GZipMiddleware
+import logging
+import os
+import time
+import asyncio
+import uuid
 from .preprocessing import preprocess_image
 from .model import predict_image
 from .routers import upload, auth
@@ -23,6 +28,13 @@ from ..reporting import calculate_stats
 from ..utils.history import record_price_history
 from ..main_scraper import search_all_platforms
 from ..database import get_connection
+from .redis_cache import cache, CACHE_KEYS
+from .celery_app import celery_app
+from .tasks import (
+    scrape_all_platforms,
+    process_price_comparison,
+    process_image,
+)
 
 logger = logging.getLogger(__name__)
 

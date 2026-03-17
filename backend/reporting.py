@@ -1,6 +1,6 @@
 import json
-from utils.statistics import calculate_statistics
-from utils.scoring import find_best_deal
+from backend.utils.statistics import calculate_statistics
+from backend.utils.scoring import find_best_deal
 
 # Alias for external use
 calculate_stats = calculate_statistics

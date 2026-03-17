@@ -7,10 +7,16 @@ import os
 # Ensure the root directory is in sys.path to import modules from scrapers/ and utils/
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "../../../")))
 
-from main_scraper import search_all_platforms
-from utils.aggregation import aggregate_prices
-from utils.scoring import find_best_deal
-from reporting import calculate_stats
+try:
+    from backend.main_scraper import search_all_platforms
+    from backend.utils.aggregation import aggregate_prices
+    from backend.utils.scoring import find_best_deal
+    from backend.reporting import calculate_stats
+except ImportError:
+    from main_scraper import search_all_platforms
+    from utils.aggregation import aggregate_prices
+    from utils.scoring import find_best_deal
+    from reporting import calculate_stats
 
 router = APIRouter()
 logger = logging.getLogger(__name__)

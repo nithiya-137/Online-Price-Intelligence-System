@@ -23,12 +23,27 @@ try:
 except ImportError:
     from main_scraper import search_all_platforms as fast_search_all_platforms
 
-from utils.aggregation import aggregate_prices
-from utils.scoring import find_best_deal
-from reporting import calculate_stats
-from .redis_cache import cache, invalidate_cache_pattern
-from .model import predict_image
-from .preprocessing import preprocess_image
+try:
+    from backend.utils.aggregation import aggregate_prices
+    from backend.utils.scoring import find_best_deal
+    from backend.reporting import calculate_stats
+    from .redis_cache import cache, invalidate_cache_pattern
+    from .model import predict_image
+    from .preprocessing import preprocess_image
+except ImportError:
+    from utils.aggregation import aggregate_prices
+    from utils.scoring import find_best_deal
+    from reporting import calculate_stats
+    try:
+        from .redis_cache import cache, invalidate_cache_pattern
+        from .model import predict_image
+        from .preprocessing import preprocess_image
+    except ImportError:
+        # Fallback for direct script execution
+        from redis_cache import cache, invalidate_cache_pattern
+        from model import predict_image
+        from preprocessing import preprocess_image
+
 
 logger = logging.getLogger(__name__)
 

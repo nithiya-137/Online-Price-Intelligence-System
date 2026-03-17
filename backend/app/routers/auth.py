@@ -3,26 +3,29 @@ Authentication Router for FastAPI Backend
 Handles user registration, login, and password reset
 """
 
-from fastapi import APIRouter, HTTPException, status, Depends
+from fastapi import APIRouter, HTTPException, status
 from pydantic import BaseModel, EmailStr, validator
 from typing import Optional
 import secrets
 import logging
 from datetime import datetime, timedelta
-import bcrypt
-import sys
-import os
 
-# Add parent directory to path for database module
-sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "../../../")))
+try:
+    from backend.database import get_connection
+except ImportError:
+    from database import get_connection
 
-from database import get_connection
-from ..email_service import send_password_reset
+try:
+    from .email_service import send_password_reset
+except (ImportError, ValueError):
+    try:
+        from backend.app.email_service import send_password_reset
+    except ImportError:
+        from email_service import send_password_reset
 
 logger = logging.getLogger(__name__)
 router = APIRouter(prefix="/api/auth", tags=["auth"])
-
-# ============================================================================
+import bcrypt
 # Pydantic Models
 # ============================================================================
 

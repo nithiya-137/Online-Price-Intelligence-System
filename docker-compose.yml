@@ -84,7 +84,7 @@ services:
       CELERY_BROKER_URL: redis://redis:6379/1
       CELERY_RESULT_BACKEND: redis://redis:6379/2
     ports:
-      - "8000:8000"
+      - "8001:8001"
     depends_on:
       redis:
         condition: service_healthy
@@ -94,7 +94,7 @@ services:
       - ./backend:/app
       - ./backend/static:/app/static
       - /app/__pycache__
-    command: python -m uvicorn app.main_optimized:app --host 0.0.0.0 --port 8000 --reload
+    command: python -m uvicorn app.main_optimized:app --host 0.0.0.0 --port 8001 --reload
     networks:
       - app-network
 
@@ -173,7 +173,7 @@ services:
     ports:
       - "5173:5173"
     environment:
-      VITE_API_URL: http://localhost:8000
+      VITE_API_URL: http://localhost:8001
     volumes:
       - ./frontend:/app
       - /app/node_modules

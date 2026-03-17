@@ -10,7 +10,10 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from webdriver_manager.chrome import ChromeDriverManager
 from selenium_stealth import stealth
-from utils.headers import USER_AGENTS
+try:
+    from backend.utils.headers import USER_AGENTS
+except ImportError:
+    from utils.headers import USER_AGENTS
 
 # Setup logging
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')

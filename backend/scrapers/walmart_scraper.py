@@ -7,7 +7,10 @@ from typing import Any, Dict, List, Optional
 import requests
 from bs4 import BeautifulSoup
 
-from utils.headers import USER_AGENTS
+try:
+    from backend.utils.headers import USER_AGENTS
+except ImportError:
+    from utils.headers import USER_AGENTS
 
 logger = logging.getLogger(__name__)
 

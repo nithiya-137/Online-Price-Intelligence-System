@@ -7,9 +7,9 @@ import sys
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), ".")))
 
 from backend.app.fast_search import fast_search_all_platforms
-from utils.aggregation import aggregate_prices
-from utils.scoring import find_best_deal
-from reporting import calculate_stats
+from backend.utils.aggregation import aggregate_prices
+from backend.utils.scoring import find_best_deal
+from backend.reporting import calculate_stats
 
 async def test_search():
     q_key = "Wireless Mouse"

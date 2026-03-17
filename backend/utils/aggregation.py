@@ -1,5 +1,5 @@
 import re
-from utils.normalization import normalize_name
+from backend.utils.normalization import normalize_name
 
 # Platforms that price in USD — convert to INR
 USD_PLATFORMS = {"ebay"}
@@ -33,7 +33,7 @@ def aggregate_prices(results, query=None):
     - Filters out highly irrelevant results if a query is provided
     - Unifies keys: title, product_url, currency, image_url, platform, score, seller_rating
     """
-    from utils.normalization import fuzzy_match
+    from backend.utils.normalization import fuzzy_match
     aggregated_list = []
 
     for platform, items in results.items():
