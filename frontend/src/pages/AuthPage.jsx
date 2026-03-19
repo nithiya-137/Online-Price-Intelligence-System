@@ -63,7 +63,7 @@ const AuthPage = () => {
         try {
             const data = await apiPost(endpoint, payload);
 
-            if (data && data.token) {
+            if (data && data.success) {
                 // Success
                 localStorage.setItem('intelToken', data.token);
                 localStorage.setItem('user', JSON.stringify(data.user));

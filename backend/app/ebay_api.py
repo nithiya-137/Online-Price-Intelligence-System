@@ -2,7 +2,7 @@ import os
 import requests
 import logging
 from typing import Dict, Any, List
-from utils.ebay_auth import get_ebay_access_token
+from ..utils.ebay_auth import get_ebay_access_token
 
 # Setup logging
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')

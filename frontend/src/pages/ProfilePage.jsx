@@ -81,7 +81,7 @@ const ProfilePage = () => {
                     onClick={() => navigate('/results')}
                     className="flex items-center gap-2 text-[10px] font-black text-slate-400 hover:text-slate-900 dark:hover:text-white uppercase tracking-widest transition-all mb-8"
                 >
-                    <ArrowLeft className="w-4 h-4" /> Return to Terminal
+                    <ArrowLeft className="w-4 h-4" /> Back to Dashboard
                 </button>
 
                 <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
@@ -101,20 +101,9 @@ const ProfilePage = () => {
                                 </div>
                             </div>
                             <h2 className="text-xl font-black text-slate-900 dark:text-white uppercase tracking-tight line-clamp-1">{user?.name}</h2>
-                            <p className="text-[10px] font-bold text-slate-400 uppercase tracking-widest mt-1">Authorized Agent</p>
+                            <p className="text-[10px] font-bold text-slate-400 uppercase tracking-widest mt-1">Member</p>
 
-                            <div className="mt-8 pt-8 border-t border-slate-100 dark:border-white/5 space-y-4">
-                                <div className="flex items-center justify-between">
-                                    <span className="text-[10px] font-black text-slate-400 uppercase tracking-widest">Trust Store</span>
-                                    <div className="flex gap-0.5">
-                                        {[1, 2, 3, 4, 5].map(i => <Star key={i} className="w-3 h-3 fill-amber-400 text-amber-400" />)}
-                                    </div>
-                                </div>
-                                <div className="flex items-center justify-between">
-                                    <span className="text-[10px] font-black text-slate-400 uppercase tracking-widest">Access Lvl</span>
-                                    <span className="text-[10px] font-black text-indigo-500 uppercase tracking-widest">Premium Elite</span>
-                                </div>
-                            </div>
+
                         </motion.div>
 
                         <motion.div
@@ -125,7 +114,7 @@ const ProfilePage = () => {
                         >
                             <div className="absolute top-[-20%] right-[-20%] w-32 h-32 bg-white/10 blur-3xl rounded-full group-hover:scale-150 transition-transform duration-700" />
                             <Package className="w-8 h-8 text-white/50 mb-4" />
-                            <h3 className="text-white font-black text-lg uppercase tracking-tight">Active Intel</h3>
+                            <h3 className="text-white font-black text-lg uppercase tracking-tight">Tracked Products</h3>
                             <p className="text-white/70 text-xs font-bold uppercase tracking-widest mt-1">12 Tracked Products</p>
                         </motion.div>
 
@@ -141,8 +130,8 @@ const ProfilePage = () => {
                                 <LogOut className="w-6 h-6" />
                             </div>
                             <div className="text-left">
-                                <p className="text-[10px] font-black uppercase tracking-widest leading-none">Termination</p>
-                                <p className="text-sm font-black uppercase tracking-tighter mt-1">Decommission Session</p>
+                                <p className="text-[10px] font-black uppercase tracking-widest leading-none">Session</p>
+                                <p className="text-sm font-black uppercase tracking-tighter mt-1">Logout</p>
                             </div>
                         </button>
                     </div>
@@ -156,8 +145,8 @@ const ProfilePage = () => {
                         >
                             <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-6 mb-10">
                                 <div>
-                                    <h3 className="text-2xl font-black text-slate-900 dark:text-white uppercase tracking-tighter">Identity Profile</h3>
-                                    <p className="text-xs font-semibold text-slate-500 uppercase tracking-widest mt-1">Manage your neural account details.</p>
+                                    <h3 className="text-2xl font-black text-slate-900 dark:text-white uppercase tracking-tighter">My Profile</h3>
+                                    <p className="text-xs font-semibold text-slate-500 uppercase tracking-widest mt-1">Manage your account details.</p>
                                 </div>
                                 <button
                                     onClick={() => setIsEditing(!isEditing)}
@@ -202,7 +191,7 @@ const ProfilePage = () => {
                                 </div>
 
                                 <div className="space-y-2">
-                                    <label className="text-[10px] font-black text-slate-400 dark:text-slate-500 uppercase tracking-widest block ml-4">Account Commissioned</label>
+                                    <label className="text-[10px] font-black text-slate-400 dark:text-slate-500 uppercase tracking-widest block ml-4">Member Since</label>
                                     <div className="relative">
                                         <Calendar className="absolute left-5 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400" />
                                         <input
@@ -215,13 +204,13 @@ const ProfilePage = () => {
                                 </div>
 
                                 <div className="space-y-2">
-                                    <label className="text-[10px] font-black text-slate-400 dark:text-slate-500 uppercase tracking-widest block ml-4">Neural Status</label>
+                                    <label className="text-[10px] font-black text-slate-400 dark:text-slate-500 uppercase tracking-widest block ml-4">Account Status</label>
                                     <div className="relative">
                                         <Activity className="absolute left-5 top-1/2 -translate-y-1/2 w-4 h-4 text-emerald-500" />
                                         <input
                                             type="text"
                                             disabled
-                                            value="Protocol Active"
+                                            value="Active"
                                             className="w-full h-14 pl-14 pr-6 rounded-2xl bg-slate-100/50 dark:bg-white/2 border border-transparent text-sm font-black text-emerald-500 uppercase tracking-widest outline-none cursor-not-allowed"
                                         />
                                     </div>

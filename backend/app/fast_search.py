@@ -70,7 +70,15 @@ def _run_scraper_with_timeout(name: str, fn, keyword: str, timeout: int = 15) ->
     """
     start = time.time()
     try:
-        result = fn(keyword)
+        # Use a temporary executor to enforce timeout on the function call itself
+        with ThreadPoolExecutor(max_workers=1) as executor:
+            future = executor.submit(fn, keyword)
+            try:
+                result = future.result(timeout=timeout)
+            except TimeoutError:
+                logger.warning(f"⏱️ {name.upper()} timed out after {timeout}s")
+                return name, [], round(time.time() - start, 2)
+            
         if not isinstance(result, list):
             result = []
         logger.info(f"✓ {name.upper()}: {len(result)} items")
@@ -80,13 +88,14 @@ def _run_scraper_with_timeout(name: str, fn, keyword: str, timeout: int = 15) ->
         return name, [], round(time.time() - start, 2)
 
 
-async def fast_search_all_platforms(keyword: str, timeout: int = 30) -> Dict[str, List]:
+async def fast_search_all_platforms(keyword: str, timeout: int = 45) -> Dict[str, List]:
     """
     Fast parallel search with resource-aware concurrency.
-    - Runs API/Requests scrapers in parallel (fast, low memory).
-    - Runs Selenium scrapers one by one to avoid VirtualAlloc crashes on Windows.
+    Returns partial results if some scrapers time out.
     """
     all_results = {}
+    start_time = time.time()
+    deadline = start_time + timeout
     
     # Define scrapers by type
     fast_scrapers = [
@@ -97,51 +106,60 @@ async def fast_search_all_platforms(keyword: str, timeout: int = 30) -> Dict[str
         ("bestbuy", search_bestbuy),
     ]
     
-    # These use Selenium and are heavy on memory/CPU
+    # These use Selenium and are heavy
     heavy_scrapers = [
         ("flipkart", search_flipkart),
         ("amazon", search_amazon),
         ("ebay", search_ebay),
     ]
     
-    logger.info(f"🔍 Starting optimized resource-aware search for: '{keyword}'")
+    logger.info(f"🔍 Starting optimized search for: '{keyword}' (Timeout: {timeout}s)")
     
     # 1. Run FAST scrapers in parallel
-    with ThreadPoolExecutor(max_workers=5) as executor:
+    with ThreadPoolExecutor(max_workers=len(fast_scrapers)) as executor:
         futures = {
-            executor.submit(_run_scraper_with_timeout, name, fn, keyword, 12): name
+            executor.submit(_run_scraper_with_timeout, name, fn, keyword, 15): name
             for name, fn in fast_scrapers
         }
         
+        # Wait for fast scrapers, but don't exceed 2/3 of total timeout
+        fast_timeout = min(20, timeout * 0.6)
         try:
-            for future in as_completed(futures, timeout=timeout/2):
+            for future in as_completed(futures, timeout=fast_timeout):
                 try:
                     name, result, _ = future.result(timeout=1)
-                    all_results[name] = result
+                    if result:
+                        all_results[name] = result
                 except Exception as e:
                     name = futures.get(future, "unknown")
                     logger.warning(f"✗ Fast {name} failed: {str(e)[:30]}")
         except TimeoutError:
-            logger.warning("⏱️ Fast API search reached partial timeout.")
+            logger.warning("⏱️ Fast scrapers hit partial timeout phase.")
 
-    # 2. Run HEAVY scrapers sequentially (to avoid VirtualAlloc/Memory crashes on Windows)
+    # 2. Run HEAVY scrapers sequentially with remaining time
     for name, fn in heavy_scrapers:
-        logger.info(f"⏳ Starting heavy scraper: {name}...")
+        remaining = deadline - time.time()
+        if remaining < 5:
+            logger.warning(f"跳过 {name} - 剩余时间不足 ({remaining:.1f}s)")
+            continue
+            
+        logger.info(f"⏳ Starting heavy scraper: {name} ({remaining:.1f}s remaining)...")
         try:
-            # Run Selenium in a thread but wait for it before starting the next one
-            name, result, _ = await asyncio.to_thread(_run_scraper_with_timeout, name, fn, keyword, 20)
-            all_results[name] = result
+            # Each heavy scraper gets its own timeout but capped by remaining time
+            scraper_timeout = min(25, remaining - 2)
+            name, result, _ = await asyncio.to_thread(_run_scraper_with_timeout, name, fn, keyword, scraper_timeout)
+            if result:
+                all_results[name] = result
         except Exception as e:
-            logger.error(f"✗ Heavy {name} failed: {e}")
-            all_results[name] = []
+            logger.error(f"✗ Heavy {name} failed/timed out: {e}")
     
-    # Ensure all platforms are in results list
+    # Final check: Ensure we have the basic platforms even if empty
     for name, _ in (fast_scrapers + heavy_scrapers):
         if name not in all_results:
             all_results[name] = []
     
     total_items = sum(len(items) for items in all_results.values())
-    logger.info(f"✅ Optimized search complete: {total_items} items")
+    logger.info(f"✅ Search complete: {total_items} items collected in {time.time()-start_time:.1f}s")
     return all_results
 
 

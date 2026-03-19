@@ -51,13 +51,13 @@ const DashboardPage = () => {
                         <div className="space-y-4">
                             <div className="flex items-center gap-3 px-4 py-1.5 rounded-full bg-indigo-500/10 border border-indigo-500/20 w-fit">
                                 <Sparkles className="w-3.5 h-3.5 text-indigo-500" />
-                                <span className="text-[10px] font-black text-indigo-500 uppercase tracking-[0.2em]">Operational Overview</span>
+                                <span className="text-[10px] font-black text-indigo-500 uppercase tracking-[0.2em]">Dashboard Overview</span>
                             </div>
                             <h1 className="text-4xl md:text-5xl font-black text-slate-900 dark:text-white font-outfit tracking-tight">
                                 Welcome back, <span className="text-indigo-500">{user.name}</span>
                             </h1>
                             <p className="text-slate-500 dark:text-slate-400 font-medium max-w-xl text-lg">
-                                Your intelligence dashboard provides a real-time summary of your market surveillance.
+                                Your dashboard shows a summary of your recent activity.
                             </p>
                         </div>
                         <div className="flex items-center gap-4">
@@ -65,7 +65,7 @@ const DashboardPage = () => {
                                 onClick={() => navigate('/upload')}
                                 className="px-8 py-4 bg-slate-900 dark:bg-white text-white dark:text-slate-900 rounded-2xl text-[10px] font-black uppercase tracking-widest shadow-xl transition-all active:scale-95 flex items-center gap-2"
                             >
-                                New Scan <Zap className="w-4 h-4" />
+                                Search Product <Zap className="w-4 h-4" />
                             </button>
                         </div>
                     </motion.div>
@@ -81,7 +81,7 @@ const DashboardPage = () => {
                         <section className="space-y-6">
                             <div className="flex items-center justify-between">
                                 <h3 className="text-xl font-black text-slate-900 dark:text-white font-outfit flex items-center gap-3">
-                                    <Heart className="w-5 h-5 text-red-500" /> Intelligence Archive
+                                    <Heart className="w-5 h-5 text-red-500" /> Saved Products
                                 </h3>
                                 <Link to="/wishlist" className="text-[10px] font-black text-indigo-500 uppercase tracking-widest hover:underline">View All</Link>
                             </div>
@@ -110,7 +110,7 @@ const DashboardPage = () => {
                                     ))
                                 ) : (
                                     <div className="col-span-full py-12 text-center border-2 border-dashed border-slate-100 dark:border-white/5 rounded-[32px]">
-                                        <p className="text-slate-400 font-medium">No archived intelligence found.</p>
+                                        <p className="text-slate-400 font-medium">No saved products found.</p>
                                     </div>
                                 )}
                             </div>
@@ -120,7 +120,7 @@ const DashboardPage = () => {
                         <section className="space-y-6">
                             <div className="flex items-center justify-between">
                                 <h3 className="text-xl font-black text-slate-900 dark:text-white font-outfit flex items-center gap-3">
-                                    <Bell className="w-5 h-5 text-amber-500" /> Active Surveillance
+                                    <Bell className="w-5 h-5 text-amber-500" /> Price Alerts
                                 </h3>
                             </div>
 
@@ -147,7 +147,7 @@ const DashboardPage = () => {
                                     ))
                                 ) : (
                                     <div className="py-12 text-center border-2 border-dashed border-slate-100 dark:border-white/5 rounded-[32px]">
-                                        <p className="text-slate-400 font-medium">No active price alerts set.</p>
+                                        <p className="text-slate-400 font-medium">No price alerts set yet.</p>
                                     </div>
                                 )}
                             </div>
@@ -158,7 +158,7 @@ const DashboardPage = () => {
                     <div className="lg:col-span-4 space-y-6">
                         <div className="flex items-center justify-between">
                             <h3 className="text-xl font-black text-slate-900 dark:text-white font-outfit flex items-center gap-3">
-                                <Clock className="w-5 h-5 text-indigo-500" /> Neural Memories
+                                <Clock className="w-5 h-5 text-indigo-500" /> Recent Searches
                             </h3>
                             <Link to="/history" className="text-[10px] font-black text-indigo-500 uppercase tracking-widest hover:underline">View All</Link>
                         </div>
@@ -199,14 +199,14 @@ const DashboardPage = () => {
                                 <ShieldCheck className="w-8 h-8" />
                             </div>
                             <div>
-                                <h4 className="text-xl font-black text-slate-900 dark:text-white font-outfit">Security Protocol Active</h4>
-                                <p className="text-sm text-slate-500 dark:text-slate-400 font-medium">All intelligence data is encrypted and private.</p>
+                                <h4 className="text-xl font-black text-slate-900 dark:text-white font-outfit">Your Data is Safe & Encrypted</h4>
+                                <p className="text-sm text-slate-500 dark:text-slate-400 font-medium">All your data is encrypted and private.</p>
                             </div>
                         </div>
                         <div className="flex items-center gap-8">
                             <div className="text-center">
-                                <p className="text-[10px] font-black text-slate-400 uppercase tracking-widest mb-1">Active Scrapers</p>
-                                <p className="text-sm font-black text-emerald-500 uppercase tracking-tighter">5 Operational</p>
+                                <p className="text-[10px] font-black text-slate-400 uppercase tracking-widest mb-1">Active Sources</p>
+                                <p className="text-sm font-black text-emerald-500 uppercase tracking-tighter">5 Active</p>
                             </div>
                         </div>
                     </div>

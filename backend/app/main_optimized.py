@@ -150,20 +150,16 @@ async def compare_prices_async(
             try:
                 # Robust selection and execution of search backend
                 if fast_search_all_platforms:
-                    raw_results = await asyncio.wait_for(
-                        fast_search_all_platforms(q_key, timeout=25),
-                        timeout=55.0,
-                    )
+                    raw_results = await fast_search_all_platforms(q_key, timeout=50)
                 
                 if (not raw_results) and search_all_platforms:
-                    raw_results = await asyncio.wait_for(
-                        asyncio.to_thread(search_all_platforms, q_key, deep_scan=True, timeout=50),
-                        timeout=60.0,
-                    )
+                    raw_results = await asyncio.to_thread(search_all_platforms, q_key, deep_scan=True, timeout=50)
             except asyncio.TimeoutError:
                 logger.error(f"Search timed out for: {q_key}")
                 if not raw_results:
                     raise HTTPException(status_code=408, detail="Search timed out. Please try again later.")
+            except HTTPException:
+                raise
             except Exception as e:
                 logger.error(f"Search backend error: {str(e)}", exc_info=True)
                 if not raw_results:
@@ -205,14 +201,15 @@ async def compare_prices_async(
                 cache.set(cache_key, result, ttl=CACHE_KEYS["compare"]["ttl"])
             return {**result, "products": aggregated[offset : offset + limit], "source": "fast"}
         except asyncio.TimeoutError:
-            logger.error(f"Search timed out for: {q_key}")
-            # Try to aggregate whatever results we got if any, or return empty
-            # If fast_search populated some partial results in a shared dict (not the case here yet)
-            # For now, return a more helpful error than a generic 500
-            raise HTTPException(
-                status_code=408, 
-                detail="The search is taking longer than expected. Please try again or check back in a moment."
-            )
+            logger.error(f"Final search timeout reached for: {q_key}")
+            # If we already have some results in raw_results, don't raise, just proceed to return them
+            if not raw_results:
+                raise HTTPException(
+                    status_code=408, 
+                    detail="The search is taking longer than expected. Please try again or check back in a moment."
+                )
+        except HTTPException:
+            raise
         except Exception as e:
             logger.error(f"Search error: {str(e)}", exc_info=True)
             raise HTTPException(status_code=500, detail=f"Search failed: {str(e)}")
